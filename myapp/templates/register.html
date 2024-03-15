@@ -1,0 +1,7 @@
+<h2>Create User</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Create User</button>
+</form>
