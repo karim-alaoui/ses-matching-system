@@ -37,7 +37,8 @@ jobs:
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          docker pull karimgluestance/django-app:latest
-          docker stop myapp || true
-          docker run --rm -d --name myapp karimgluestance/django-app:latest
-          docker image prune -f
+          cd ~/ses-matching-project  # Navigate to the project directory
+          docker-compose pull web    # Pull the latest image for the web service
+          docker-compose up -d       # Recreate the services
+          docker image prune -f      # Clean up unused images
+    
